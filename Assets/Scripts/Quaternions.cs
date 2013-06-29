@@ -20,6 +20,8 @@ public class Quaternions : MonoBehaviour
     public Material yTrail;
     public Material zTrail;
 
+    public Camera cam;
+
     private LineRenderer vectorX;
     private LineRenderer vectorY;
     private LineRenderer vectorZ;
@@ -33,9 +35,13 @@ public class Quaternions : MonoBehaviour
     private List<Vector3> quaternionYPoints;
     private List<Vector3> quaternionZPoints;
     private bool follow;
+    private MouseOrbit orbit;
 
     void Start()
     {
+        Screen.showCursor = false;
+        orbit = cam.GetComponent<MouseOrbit>();
+
         vectorXPoints = new List<Vector3>();
         vectorYPoints = new List<Vector3>();
         vectorZPoints = new List<Vector3>();
@@ -101,6 +107,10 @@ public class Quaternions : MonoBehaviour
 
         if (Input.GetKeyDown("tab"))
         {
+            vectorArrow.rotation = Quaternion.identity;
+            quaternionArrow.rotation = Quaternion.identity;
+            vectorGoal.rotation = Quaternion.identity;
+            quaternionGoal.rotation = Quaternion.identity;
             if (vectorArrow.position == Vector3.zero && quaternionArrow.position == Vector3.zero)
             {
                 vectorArrow.position = new Vector3(-0.6f, 0, 0);
@@ -110,6 +120,7 @@ public class Quaternions : MonoBehaviour
                 vectorArrow.gameObject.SetActive(true);
                 vectorGoal.gameObject.SetActive(true);
                 ResetTrails();
+                orbit.distance = 3;
             }
             else
             {
@@ -120,6 +131,7 @@ public class Quaternions : MonoBehaviour
                 vectorArrow.gameObject.SetActive(false);
                 vectorGoal.gameObject.SetActive(false);
                 ResetTrails();
+                orbit.distance = 2;
             }
         }
 
