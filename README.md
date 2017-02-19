@@ -6,11 +6,11 @@ http://habrahabr.ru/post/183908/
 
 Unity Web Player http://basmanovdaniil.github.io/Quaternions
 
-Windows http://yadi.sk/d/TWmX4pwH6BIq8
+Windows https://github.com/BasmanovDaniil/Quaternions/releases/download/v1.0/Windows.zip
 
-Linux http://yadi.sk/d/xYNJk2U_6BERE
+Linux https://github.com/BasmanovDaniil/Quaternions/releases/download/v1.0/Linux.zip
 
-Mac http://yadi.sk/d/gpx4Wbj-6BGuE
+Mac https://github.com/BasmanovDaniil/Quaternions/releases/download/v1.0/Mac.zip
 
 http://youtu.be/SKh831EqR7Q
 
