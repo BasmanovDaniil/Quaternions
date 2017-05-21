@@ -4,14 +4,14 @@
 
 http://habrahabr.ru/post/183908/
 
-Unity Web Player http://basmanovdaniil.github.io/Quaternions
+WebGL http://basmanovdaniil.github.io/Quaternions
 
-Windows https://github.com/BasmanovDaniil/Quaternions/releases/download/v1.0/Windows.zip
+Windows https://github.com/BasmanovDaniil/Quaternions/releases/download/v1.0/Quaternions.Windows.zip
 
-Linux https://github.com/BasmanovDaniil/Quaternions/releases/download/v1.0/Linux.zip
+Linux https://github.com/BasmanovDaniil/Quaternions/releases/download/v1.0/Quaternions.Linux.zip
 
-Mac https://github.com/BasmanovDaniil/Quaternions/releases/download/v1.0/Mac.zip
+Mac https://github.com/BasmanovDaniil/Quaternions/releases/download/v1.0/Quaternions.Mac.zip
 
 http://youtu.be/SKh831EqR7Q
 
-Работоспособность проверялась только на четвёртой версии Unity3d
+Работоспособность проверялась только в 5.6.0f3
