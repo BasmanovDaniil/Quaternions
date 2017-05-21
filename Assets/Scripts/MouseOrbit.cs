@@ -18,7 +18,7 @@ public class MouseOrbit : MonoBehaviour
         tr = transform;
         x = tr.eulerAngles.x;
         y = tr.eulerAngles.y;
-        if (rigidbody != null) rigidbody.freezeRotation = true;
+        if (GetComponent<Rigidbody>() != null) GetComponent<Rigidbody>().freezeRotation = true;
     }
 
     private void LateUpdate()
