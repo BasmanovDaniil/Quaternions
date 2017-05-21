@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class Quaternions : MonoBehaviour
 {
-    public GUIText leftEuler;
-    public GUIText leftQuaternion;
-    public GUIText rightEuler;
-    public GUIText rightQuaternion;
+    public Text leftEuler;
+    public Text leftQuaternion;
+    public Text rightEuler;
+    public Text rightQuaternion;
 
     public Transform vectorArrow;
     public Transform quaternionArrow;
