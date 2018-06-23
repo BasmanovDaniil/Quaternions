@@ -9,26 +9,23 @@ public class MouseOrbit : MonoBehaviour
     public float yMinLimit = -20;
     public float yMaxLimit = 80;
 
-    private Transform tr;
     private float x;
     private float y;
 
     private void Start()
     {
-        tr = transform;
-        x = tr.eulerAngles.x;
-        y = tr.eulerAngles.y;
-        if (GetComponent<Rigidbody>() != null) GetComponent<Rigidbody>().freezeRotation = true;
+        x = transform.eulerAngles.x;
+        y = transform.eulerAngles.y;
     }
 
     private void LateUpdate()
     {
         if (target == null) return;
-        x += Input.GetAxis("Mouse X") * xSpeed * Time.deltaTime;
-        y -= Input.GetAxis("Mouse Y") * ySpeed * Time.deltaTime;
+        x += Input.GetAxis("Mouse X")*xSpeed*Time.deltaTime;
+        y -= Input.GetAxis("Mouse Y")*ySpeed*Time.deltaTime;
         y = ClampAngle(y, yMinLimit, yMaxLimit);
-        tr.rotation = Quaternion.Euler(y, x, 0);
-        tr.position = tr.rotation * new Vector3(0, 0, -distance) + target.position;
+        transform.rotation = Quaternion.Euler(y, x, 0);
+        transform.position = transform.rotation*new Vector3(0, 0, -distance) + target.position;
     }
 
     private float ClampAngle(float angle, float min, float max)
