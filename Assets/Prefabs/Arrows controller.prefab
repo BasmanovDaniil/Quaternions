@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4017127733774810}
   - component: {fileID: 96086490445536842}
   m_Layer: 0
-  m_Name: Z Trail
+  m_Name: Z Trail Dark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,7 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4138761464056164}
   m_Layer: 0
-  m_Name: Quaternion Arrow
+  m_Name: Vector Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,7 +165,22 @@ GameObject:
   - component: {fileID: 4906025666914846}
   - component: {fileID: 96045821017575102}
   m_Layer: 0
-  m_Name: Y Trail
+  m_Name: Y Trail Dark
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1418979791410564
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4586626152707456}
+  m_Layer: 0
+  m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -276,7 +291,7 @@ GameObject:
   - component: {fileID: 4338042744413556}
   - component: {fileID: 96708076534351218}
   m_Layer: 0
-  m_Name: X Trail
+  m_Name: X Trail Dark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -292,7 +307,22 @@ GameObject:
   - component: {fileID: 4985485012718714}
   - component: {fileID: 96557971896187984}
   m_Layer: 0
-  m_Name: Y Trail Dark
+  m_Name: Y Trail
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1764305196191894
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4373219739479620}
+  m_Layer: 0
+  m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -325,7 +355,7 @@ GameObject:
   - component: {fileID: 4188271907891150}
   - component: {fileID: 96508960604363458}
   m_Layer: 0
-  m_Name: Z Trail Dark
+  m_Name: Z Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -373,7 +403,7 @@ GameObject:
   - component: {fileID: 4890733573639194}
   - component: {fileID: 96942414559043412}
   m_Layer: 0
-  m_Name: X Trail Dark
+  m_Name: X Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -390,7 +420,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4615787238951570}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4073798431205180
 Transform:
@@ -398,11 +428,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1434503370527008}
-  m_LocalRotation: {x: 0.087155975, y: 0, z: 0, w: 0.9961947}
+  m_LocalRotation: {x: 0.087155975, y: -0, z: -0, w: 0.9961947}
   m_LocalPosition: {x: 0, y: 0.05, z: -0.33}
   m_LocalScale: {x: 0.1, y: 0.20000003, z: 0.30000007}
   m_Children: []
-  m_Father: {fileID: 4615787238951570}
+  m_Father: {fileID: 4586626152707456}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4091171025863414
@@ -415,8 +445,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4816161364899432}
-  - {fileID: 4472013016824428}
+  - {fileID: 4373219739479620}
   - {fileID: 4890733573639194}
   - {fileID: 4985485012718714}
   - {fileID: 4188271907891150}
@@ -449,7 +478,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4091171025863414}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4193784432030064
 Transform:
@@ -519,7 +548,22 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4615787238951570}
-  m_RootOrder: 2
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4373219739479620
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1764305196191894}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4816161364899432}
+  - {fileID: 4472013016824428}
+  m_Father: {fileID: 4091171025863414}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4472013016824428
 Transform:
@@ -527,11 +571,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1623600131802672}
-  m_LocalRotation: {x: 0.08715574, y: 0, z: 0, w: 0.9961947}
+  m_LocalRotation: {x: 0.08715574, y: -0, z: -0, w: 0.9961947}
   m_LocalPosition: {x: 0, y: 0.05, z: -0.33}
   m_LocalScale: {x: 0.1, y: 0.2, z: 0.3}
   m_Children: []
-  m_Father: {fileID: 4091171025863414}
+  m_Father: {fileID: 4373219739479620}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4508031103948580
@@ -574,6 +618,21 @@ Transform:
   m_Father: {fileID: 4138761464056164}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4586626152707456
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1418979791410564}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4765428786533862}
+  - {fileID: 4073798431205180}
+  m_Father: {fileID: 4615787238951570}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4610457405372070
 Transform:
   m_ObjectHideFlags: 1
@@ -599,8 +658,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4765428786533862}
-  - {fileID: 4073798431205180}
+  - {fileID: 4586626152707456}
   - {fileID: 4338042744413556}
   - {fileID: 4906025666914846}
   - {fileID: 4017127733774810}
@@ -613,11 +671,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1949874457874962}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4615787238951570}
+  m_Father: {fileID: 4586626152707456}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4816161364899432
@@ -626,11 +684,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1229293893700750}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4091171025863414}
+  m_Father: {fileID: 4373219739479620}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4890733573639194
@@ -644,7 +702,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4091171025863414}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4906025666914846
 Transform:
@@ -657,7 +715,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4615787238951570}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4940306178940202
 Transform:
@@ -698,7 +756,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4091171025863414}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23146651001768202
 MeshRenderer:
@@ -1052,7 +1110,7 @@ TrailRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 7023728e1e236304382a41fe44b88415, type: 2}
+  - {fileID: 2100000, guid: 93e6dfc5257f0314ab854387277775bf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1072,7 +1130,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Time: 10
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 0.01
@@ -1094,7 +1152,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1109,7 +1167,7 @@ TrailRenderer:
       ctime5: 0
       ctime6: 0
       ctime7: 0
-      atime0: 0
+      atime0: 58982
       atime1: 65535
       atime2: 0
       atime3: 0
@@ -1125,7 +1183,7 @@ TrailRenderer:
     alignment: 0
     textureMode: 0
     generateLightingData: 0
-  m_MinVertexDistance: 0.02
+  m_MinVertexDistance: 0.01
   m_Autodestruct: 0
 --- !u!96 &96086490445536842
 TrailRenderer:
@@ -1143,7 +1201,7 @@ TrailRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: d493f9c9957ae3a439f31d8c8d2edcc4, type: 2}
+  - {fileID: 2100000, guid: 01e7bef2a341b3b44845ea110b264b61, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1163,7 +1221,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Time: 10
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 0.01
@@ -1185,7 +1243,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1200,7 +1258,7 @@ TrailRenderer:
       ctime5: 0
       ctime6: 0
       ctime7: 0
-      atime0: 0
+      atime0: 58982
       atime1: 65535
       atime2: 0
       atime3: 0
@@ -1216,7 +1274,7 @@ TrailRenderer:
     alignment: 0
     textureMode: 0
     generateLightingData: 0
-  m_MinVertexDistance: 0.02
+  m_MinVertexDistance: 0.01
   m_Autodestruct: 0
 --- !u!96 &96508960604363458
 TrailRenderer:
@@ -1254,7 +1312,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Time: 10
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 0.01
@@ -1276,7 +1334,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1291,7 +1349,7 @@ TrailRenderer:
       ctime5: 0
       ctime6: 0
       ctime7: 0
-      atime0: 0
+      atime0: 58982
       atime1: 65535
       atime2: 0
       atime3: 0
@@ -1307,7 +1365,7 @@ TrailRenderer:
     alignment: 0
     textureMode: 0
     generateLightingData: 0
-  m_MinVertexDistance: 0.02
+  m_MinVertexDistance: 0.01
   m_Autodestruct: 0
 --- !u!96 &96557971896187984
 TrailRenderer:
@@ -1345,7 +1403,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Time: 10
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 0.01
@@ -1367,7 +1425,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1382,7 +1440,7 @@ TrailRenderer:
       ctime5: 0
       ctime6: 0
       ctime7: 0
-      atime0: 0
+      atime0: 58982
       atime1: 65535
       atime2: 0
       atime3: 0
@@ -1398,7 +1456,7 @@ TrailRenderer:
     alignment: 0
     textureMode: 0
     generateLightingData: 0
-  m_MinVertexDistance: 0.02
+  m_MinVertexDistance: 0.01
   m_Autodestruct: 0
 --- !u!96 &96708076534351218
 TrailRenderer:
@@ -1416,7 +1474,7 @@ TrailRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 95c59266865fa274b966548bc443043e, type: 2}
+  - {fileID: 2100000, guid: 0c05c90242287d94fa2af29728890aea, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1436,7 +1494,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Time: 10
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 0.01
@@ -1458,7 +1516,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1473,7 +1531,7 @@ TrailRenderer:
       ctime5: 0
       ctime6: 0
       ctime7: 0
-      atime0: 0
+      atime0: 58982
       atime1: 65535
       atime2: 0
       atime3: 0
@@ -1489,7 +1547,7 @@ TrailRenderer:
     alignment: 0
     textureMode: 0
     generateLightingData: 0
-  m_MinVertexDistance: 0.02
+  m_MinVertexDistance: 0.01
   m_Autodestruct: 0
 --- !u!96 &96942414559043412
 TrailRenderer:
@@ -1527,7 +1585,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Time: 10
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 0.01
@@ -1549,7 +1607,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1564,7 +1622,7 @@ TrailRenderer:
       ctime5: 0
       ctime6: 0
       ctime7: 0
-      atime0: 0
+      atime0: 58982
       atime1: 65535
       atime2: 0
       atime3: 0
@@ -1580,7 +1638,7 @@ TrailRenderer:
     alignment: 0
     textureMode: 0
     generateLightingData: 0
-  m_MinVertexDistance: 0.02
+  m_MinVertexDistance: 0.01
   m_Autodestruct: 0
 --- !u!114 &114674727952385692
 MonoBehaviour:
@@ -1593,15 +1651,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b75479f5c212eb14c906783ac42a5183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orbit: {fileID: 0}
+  vectorArrow: {fileID: 4615787238951570}
+  vectorGoal: {fileID: 4515835844535880}
+  vectorModel: {fileID: 1418979791410564}
+  quaternionArrow: {fileID: 4091171025863414}
+  quaternionGoal: {fileID: 4241822681767970}
+  quaternionModel: {fileID: 1764305196191894}
   leftEuler: {fileID: 0}
   leftQuaternion: {fileID: 0}
   rightEuler: {fileID: 0}
   rightQuaternion: {fileID: 0}
-  vectorArrow: {fileID: 4615787238951570}
-  quaternionArrow: {fileID: 4091171025863414}
-  vectorGoal: {fileID: 4515835844535880}
-  quaternionGoal: {fileID: 4241822681767970}
-  orbit: {fileID: 0}
   vectorX: {fileID: 96708076534351218}
   vectorY: {fileID: 96045821017575102}
   vectorZ: {fileID: 96086490445536842}

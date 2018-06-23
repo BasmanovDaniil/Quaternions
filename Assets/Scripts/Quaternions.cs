@@ -3,18 +3,19 @@ using UnityEngine.UI;
 
 public class Quaternions : MonoBehaviour
 {
+    public MouseOrbit orbit;
+    [Header("Arrows")]
+    public Transform vectorArrow;
+    public Transform vectorGoal;
+    public GameObject vectorModel;
+    public Transform quaternionArrow;
+    public Transform quaternionGoal;
+    public GameObject quaternionModel;
+    [Header("UI")]
     public Text leftEuler;
     public Text leftQuaternion;
     public Text rightEuler;
     public Text rightQuaternion;
-
-    public Transform vectorArrow;
-    public Transform quaternionArrow;
-    public Transform vectorGoal;
-    public Transform quaternionGoal;
-
-    public MouseOrbit orbit;
-
     [Header("Trails")]
     public TrailRenderer vectorX;
     public TrailRenderer vectorY;
@@ -30,13 +31,14 @@ public class Quaternions : MonoBehaviour
                                             "<color=#98f145ff>QY: {1:F2}</color>\n" +
                                             "<color=#3d80f1ff>QZ: {2:F2}</color>\n" +
                                             "QW: {3:F2}";
+    private const float offset = 0.6f;
+    private const float followSpeed = 2;
 
     private bool follow;
+    private bool joined;
 
     private void Start()
     {
-        Cursor.visible = false;
-
         ResetTrails();
     }
 
@@ -45,60 +47,45 @@ public class Quaternions : MonoBehaviour
         if (Input.GetKey(KeyCode.Escape)) Application.Quit();
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            vectorArrow.rotation = Quaternion.identity;
-            quaternionArrow.rotation = Quaternion.identity;
-            vectorGoal.rotation = Quaternion.identity;
-            quaternionGoal.rotation = Quaternion.identity;
-            follow = false;
-            ResetTrails();
+            ResetRotation();
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
-            var nextRotation = Quaternion.Euler(Random.value*89, Random.value*180, Random.value*180);
-            vectorGoal.rotation = nextRotation;
-            quaternionGoal.rotation = nextRotation;
-            follow = true;
-            ResetTrails();
+            SetGoal(Quaternion.Euler(Random.value*89, Random.value*180, Random.value*180));
         }
 
         if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl))
         {
-            var nextRotation = Random.rotationUniform;
-            vectorGoal.rotation = nextRotation;
-            quaternionGoal.rotation = nextRotation;
-            follow = true;
-            ResetTrails();
+            SetGoal(Random.rotationUniform);
         }
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            vectorArrow.rotation = Quaternion.identity;
-            quaternionArrow.rotation = Quaternion.identity;
-            vectorGoal.rotation = Quaternion.identity;
-            quaternionGoal.rotation = Quaternion.identity;
-            if (vectorArrow.position == Vector3.zero && quaternionArrow.position == Vector3.zero)
+            if (joined)
             {
-                vectorArrow.position = new Vector3(-0.6f, 0, 0);
-                vectorGoal.position = new Vector3(-0.6f, 0, 0);
-                quaternionArrow.position = new Vector3(0.6f, 0, 0);
-                quaternionGoal.position = new Vector3(0.6f, 0, 0);
-                vectorArrow.gameObject.SetActive(true);
+                joined = false;
+                vectorArrow.position = new Vector3(-offset, 0, 0);
+                vectorGoal.position = new Vector3(-offset, 0, 0);
+                quaternionArrow.position = new Vector3(offset, 0, 0);
+                quaternionGoal.position = new Vector3(offset, 0, 0);
+                vectorModel.gameObject.SetActive(true);
                 vectorGoal.gameObject.SetActive(true);
-                ResetTrails();
                 orbit.distance = 3;
             }
             else
             {
+                joined = true;
                 vectorArrow.position = Vector3.zero;
                 vectorGoal.position = Vector3.zero;
                 quaternionArrow.position = Vector3.zero;
                 quaternionGoal.position = Vector3.zero;
-                vectorArrow.gameObject.SetActive(false);
+                vectorModel.gameObject.SetActive(false);
                 vectorGoal.gameObject.SetActive(false);
-                ResetTrails();
                 orbit.distance = 2;
             }
+
+            ResetRotation();
         }
 
         if (Input.GetKey(KeyCode.D)) quaternionArrow.rotation *= Quaternion.Euler(+1, 0, 0);
@@ -119,11 +106,11 @@ public class Quaternions : MonoBehaviour
         {
             if (vectorArrow.eulerAngles != vectorGoal.eulerAngles)
             {
-                vectorArrow.eulerAngles = Vector3.Slerp(vectorArrow.eulerAngles, vectorGoal.eulerAngles, 0.02f);
+                vectorArrow.eulerAngles = Vector3.Lerp(vectorArrow.eulerAngles, vectorGoal.eulerAngles, Time.deltaTime*followSpeed);
             }
             if (quaternionArrow.rotation != quaternionGoal.rotation)
             {
-                quaternionArrow.rotation = Quaternion.Slerp(quaternionArrow.rotation, quaternionGoal.rotation, 0.02f);
+                quaternionArrow.rotation = Quaternion.Lerp(quaternionArrow.rotation, quaternionGoal.rotation, Time.deltaTime*followSpeed);
             }
         }
 
@@ -143,9 +130,26 @@ public class Quaternions : MonoBehaviour
         vectorX.Clear();
         vectorY.Clear();
         vectorZ.Clear();
-
         quaternionX.Clear();
         quaternionY.Clear();
         quaternionZ.Clear();
+    }
+
+    private void ResetRotation()
+    {
+        vectorArrow.rotation = Quaternion.identity;
+        quaternionArrow.rotation = Quaternion.identity;
+        vectorGoal.rotation = Quaternion.identity;
+        quaternionGoal.rotation = Quaternion.identity;
+        follow = false;
+        ResetTrails();
+    }
+
+    private void SetGoal(Quaternion rotation)
+    {
+        vectorGoal.rotation = rotation;
+        quaternionGoal.rotation = rotation;
+        follow = true;
+        ResetTrails();
     }
 }
