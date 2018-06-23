@@ -6,12 +6,10 @@ http://habrahabr.ru/post/183908/
 
 WebGL http://basmanovdaniil.github.io/Quaternions
 
-Windows https://github.com/BasmanovDaniil/Quaternions/releases/download/v1.0/Quaternions.Windows.zip
+Windows https://github.com/BasmanovDaniil/Quaternions/releases/download/2.0/Quaternions.Windows.zip
 
-Linux https://github.com/BasmanovDaniil/Quaternions/releases/download/v1.0/Quaternions.Linux.zip
+Linux https://github.com/BasmanovDaniil/Quaternions/releases/download/2.0/Quaternions.Linux.zip
 
-Mac https://github.com/BasmanovDaniil/Quaternions/releases/download/v1.0/Quaternions.Mac.zip
+Mac https://github.com/BasmanovDaniil/Quaternions/releases/download/2.0/Quaternions.Mac.zip
 
 http://youtu.be/SKh831EqR7Q
-
-Работоспособность проверялась только в 5.6.0f3
