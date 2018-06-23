@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class Quaternions : MonoBehaviour
@@ -14,80 +13,37 @@ public class Quaternions : MonoBehaviour
     public Transform vectorGoal;
     public Transform quaternionGoal;
 
-    public Material xTrailD;
-    public Material yTrailD;
-    public Material zTrailD;
-    public Material xTrail;
-    public Material yTrail;
-    public Material zTrail;
+    public MouseOrbit orbit;
 
-    public Camera cam;
+    [Header("Trails")]
+    public TrailRenderer vectorX;
+    public TrailRenderer vectorY;
+    public TrailRenderer vectorZ;
+    public TrailRenderer quaternionX;
+    public TrailRenderer quaternionY;
+    public TrailRenderer quaternionZ;
 
-    private const float lineWidth = 0.01f;
+    private const string eulerFormat = "<color=#f14121ff>X: {0:F0}°</color>\n" +
+                                       "<color=#98f145ff>Y: {1:F0}°</color>\n" +
+                                       "<color=#3d80f1ff>Z: {2:F0}°</color>";
+    private const string quaternionFormat = "<color=#f14121ff>QX: {0:F2}</color>\n" +
+                                            "<color=#98f145ff>QY: {1:F2}</color>\n" +
+                                            "<color=#3d80f1ff>QZ: {2:F2}</color>\n" +
+                                            "QW: {3:F2}";
 
-    private LineRenderer vectorX;
-    private LineRenderer vectorY;
-    private LineRenderer vectorZ;
-    private LineRenderer quaternionX;
-    private LineRenderer quaternionY;
-    private LineRenderer quaternionZ;
-    private List<Vector3> vectorXPoints;
-    private List<Vector3> vectorYPoints;
-    private List<Vector3> vectorZPoints;
-    private List<Vector3> quaternionXPoints;
-    private List<Vector3> quaternionYPoints;
-    private List<Vector3> quaternionZPoints;
     private bool follow;
-    private MouseOrbit orbit;
 
     private void Start()
     {
         Cursor.visible = false;
-        orbit = cam.GetComponent<MouseOrbit>();
-
-        vectorXPoints = new List<Vector3>();
-        vectorYPoints = new List<Vector3>();
-        vectorZPoints = new List<Vector3>();
-        quaternionXPoints = new List<Vector3>();
-        quaternionYPoints = new List<Vector3>();
-        quaternionZPoints = new List<Vector3>();
-
-        vectorX = GameObject.Find("X Trail").AddComponent<LineRenderer>();
-        vectorY = GameObject.Find("Y Trail").AddComponent<LineRenderer>();
-        vectorZ = GameObject.Find("Z Trail").AddComponent<LineRenderer>();
-        quaternionX = GameObject.Find("X Trail Dark").AddComponent<LineRenderer>();
-        quaternionY = GameObject.Find("Y Trail Dark").AddComponent<LineRenderer>();
-        quaternionZ = GameObject.Find("Z Trail Dark").AddComponent<LineRenderer>();
-
-        vectorX.material = xTrailD;
-        vectorY.material = yTrailD;
-        vectorZ.material = zTrailD;
-        quaternionX.material = xTrail;
-        quaternionY.material = yTrail;
-        quaternionZ.material = zTrail;
-
-        vectorX.startWidth = lineWidth;
-        vectorX.endWidth = lineWidth;
-        vectorY.startWidth = lineWidth;
-        vectorY.endWidth = lineWidth;
-        vectorZ.startWidth = lineWidth;
-        vectorZ.endWidth = lineWidth;
-
-        quaternionX.startWidth = lineWidth;
-        quaternionX.endWidth = lineWidth;
-        quaternionY.startWidth = lineWidth;
-        quaternionY.endWidth = lineWidth;
-        quaternionZ.startWidth = lineWidth;
-        quaternionZ.endWidth = lineWidth;
 
         ResetTrails();
-        InvokeRepeating("UpdateTrails", 0.04f, 0.04f);
     }
 
     private void Update()
     {
-        if (Input.GetKey("escape")) Application.Quit();
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKey(KeyCode.Escape)) Application.Quit();
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             vectorArrow.rotation = Quaternion.identity;
             quaternionArrow.rotation = Quaternion.identity;
@@ -97,7 +53,7 @@ public class Quaternions : MonoBehaviour
             ResetTrails();
         }
 
-        if (Input.GetKeyDown("left shift") || Input.GetKeyDown("right shift"))
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
             var nextRotation = Quaternion.Euler(Random.value*89, Random.value*180, Random.value*180);
             vectorGoal.rotation = nextRotation;
@@ -106,7 +62,7 @@ public class Quaternions : MonoBehaviour
             ResetTrails();
         }
 
-        if (Input.GetKeyDown("left ctrl") || Input.GetKeyDown("right ctrl"))
+        if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl))
         {
             var nextRotation = Random.rotationUniform;
             vectorGoal.rotation = nextRotation;
@@ -115,7 +71,7 @@ public class Quaternions : MonoBehaviour
             ResetTrails();
         }
 
-        if (Input.GetKeyDown("tab"))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             vectorArrow.rotation = Quaternion.identity;
             quaternionArrow.rotation = Quaternion.identity;
@@ -145,19 +101,19 @@ public class Quaternions : MonoBehaviour
             }
         }
 
-        if (Input.GetKey("d")) quaternionArrow.rotation *= Quaternion.Euler(+1, 0, 0);
-        if (Input.GetKey("a")) quaternionArrow.rotation *= Quaternion.Euler(-1, 0, 0);
-        if (Input.GetKey("w")) quaternionArrow.rotation *= Quaternion.Euler(0, +1, 0);
-        if (Input.GetKey("s")) quaternionArrow.rotation *= Quaternion.Euler(0, -1, 0);
-        if (Input.GetKey("e")) quaternionArrow.rotation *= Quaternion.Euler(0, 0, +1);
-        if (Input.GetKey("q")) quaternionArrow.rotation *= Quaternion.Euler(0, 0, -1);
+        if (Input.GetKey(KeyCode.D)) quaternionArrow.rotation *= Quaternion.Euler(+1, 0, 0);
+        if (Input.GetKey(KeyCode.A)) quaternionArrow.rotation *= Quaternion.Euler(-1, 0, 0);
+        if (Input.GetKey(KeyCode.W)) quaternionArrow.rotation *= Quaternion.Euler(0, +1, 0);
+        if (Input.GetKey(KeyCode.S)) quaternionArrow.rotation *= Quaternion.Euler(0, -1, 0);
+        if (Input.GetKey(KeyCode.E)) quaternionArrow.rotation *= Quaternion.Euler(0, 0, +1);
+        if (Input.GetKey(KeyCode.Q)) quaternionArrow.rotation *= Quaternion.Euler(0, 0, -1);
 
-        if (Input.GetKey("d")) vectorArrow.eulerAngles += new Vector3(+1, 0, 0);
-        if (Input.GetKey("a")) vectorArrow.eulerAngles += new Vector3(-1, 0, 0);
-        if (Input.GetKey("w")) vectorArrow.eulerAngles += new Vector3(0, +1, 0);
-        if (Input.GetKey("s")) vectorArrow.eulerAngles += new Vector3(0, -1, 0);
-        if (Input.GetKey("e")) vectorArrow.eulerAngles += new Vector3(0, 0, +1);
-        if (Input.GetKey("q")) vectorArrow.eulerAngles += new Vector3(0, 0, -1);
+        if (Input.GetKey(KeyCode.D)) vectorArrow.eulerAngles += new Vector3(+1, 0, 0);
+        if (Input.GetKey(KeyCode.A)) vectorArrow.eulerAngles += new Vector3(-1, 0, 0);
+        if (Input.GetKey(KeyCode.W)) vectorArrow.eulerAngles += new Vector3(0, +1, 0);
+        if (Input.GetKey(KeyCode.S)) vectorArrow.eulerAngles += new Vector3(0, -1, 0);
+        if (Input.GetKey(KeyCode.E)) vectorArrow.eulerAngles += new Vector3(0, 0, +1);
+        if (Input.GetKey(KeyCode.Q)) vectorArrow.eulerAngles += new Vector3(0, 0, -1);
 
         if (follow)
         {
@@ -171,93 +127,25 @@ public class Quaternions : MonoBehaviour
             }
         }
 
-        leftEuler.text = "<color=#f14121ff>X: " + quaternionArrow.eulerAngles.x.ToString("F0") + "</color>"
-                         + "\n<color=#98f145ff>Y: " + quaternionArrow.eulerAngles.y.ToString("F0") + "</color>"
-                         + "\n<color=#3d80f1ff>Z: " + quaternionArrow.eulerAngles.z.ToString("F0") + "</color>";
-        leftQuaternion.text = "<color=#f14121ff>QX: " + quaternionArrow.rotation.x.ToString("F2") + "</color>"
-                              + "\n<color=#98f145ff>QY: " + quaternionArrow.rotation.y.ToString("F2") + "</color>"
-                              + "\n<color=#3d80f1ff>QZ: " + quaternionArrow.rotation.z.ToString("F2") + "</color>"
-                              + "\nQW: " + quaternionArrow.rotation.w.ToString("F2");
-        rightEuler.text = "<color=#f14121ff>X: " + vectorArrow.eulerAngles.x.ToString("F0") + "</color>"
-                          + "\n<color=#98f145ff>Y: " + vectorArrow.eulerAngles.y.ToString("F0") + "</color>"
-                          + "\n<color=#3d80f1ff>Z: " + vectorArrow.eulerAngles.z.ToString("F0") + "</color>";
-        rightQuaternion.text = "<color=#f14121ff>QX: " + vectorArrow.rotation.x.ToString("F2") + "</color>"
-                               + "\n<color=#98f145ff>QY: " + vectorArrow.rotation.y.ToString("F2") + "</color>"
-                               + "\n<color=#3d80f1ff>QZ: " + vectorArrow.rotation.z.ToString("F2") + "</color>"
-                               + "\nQW: " + vectorArrow.rotation.w.ToString("F2");
+        leftEuler.text = string.Format(eulerFormat,
+            quaternionArrow.eulerAngles.x, quaternionArrow.eulerAngles.y, quaternionArrow.eulerAngles.z);
+        leftQuaternion.text = string.Format(quaternionFormat,
+            quaternionArrow.rotation.x, quaternionArrow.rotation.y, quaternionArrow.rotation.z, quaternionArrow.rotation.w);
+
+        rightEuler.text = string.Format(eulerFormat,
+            vectorArrow.eulerAngles.x, vectorArrow.eulerAngles.y, vectorArrow.eulerAngles.z);
+        rightQuaternion.text = string.Format(quaternionFormat,
+            vectorArrow.rotation.x, vectorArrow.rotation.y, vectorArrow.rotation.z, vectorArrow.rotation.w);
     }
 
     private void ResetTrails()
     {
-        vectorXPoints.Clear();
-        vectorXPoints.Add(vectorArrow.position + vectorArrow.forward*0.5f);
-        vectorX.positionCount = 1;
-        vectorX.SetPosition(0, vectorXPoints[0]);
+        vectorX.Clear();
+        vectorY.Clear();
+        vectorZ.Clear();
 
-        vectorYPoints.Clear();
-        vectorYPoints.Add(vectorArrow.position + vectorArrow.up*0.5f);
-        vectorY.positionCount = 1;
-        vectorY.SetPosition(0, vectorYPoints[0]);
-
-        vectorZPoints.Clear();
-        vectorZPoints.Add(vectorArrow.position + vectorArrow.right*0.5f);
-        vectorZ.positionCount = 1;
-        vectorZ.SetPosition(0, vectorZPoints[0]);
-
-        quaternionXPoints.Clear();
-        quaternionXPoints.Add(quaternionArrow.position + quaternionArrow.forward*0.5f);
-        quaternionX.positionCount = 1;
-        quaternionX.SetPosition(0, quaternionXPoints[0]);
-
-        quaternionYPoints.Clear();
-        quaternionYPoints.Add(quaternionArrow.position + quaternionArrow.up*0.5f);
-        quaternionY.positionCount = 1;
-        quaternionY.SetPosition(0, quaternionYPoints[0]);
-
-        quaternionZPoints.Clear();
-        quaternionZPoints.Add(quaternionArrow.position + quaternionArrow.right*0.5f);
-        quaternionZ.positionCount = 1;
-        quaternionZ.SetPosition(0, quaternionZPoints[0]);
-    }
-
-    private void UpdateTrails()
-    {
-        if (vectorXPoints[vectorXPoints.Count - 1] != vectorArrow.position + vectorArrow.forward*0.5f)
-        {
-            vectorXPoints.Add(vectorArrow.position + vectorArrow.forward*0.5f);
-            vectorX.positionCount = vectorXPoints.Count;
-            vectorX.SetPosition(vectorXPoints.Count - 1, vectorXPoints[vectorXPoints.Count - 1]);
-        }
-        if (vectorYPoints[vectorYPoints.Count - 1] != vectorArrow.position + vectorArrow.up*0.5f)
-        {
-            vectorYPoints.Add(vectorArrow.position + vectorArrow.up*0.5f);
-            vectorY.positionCount = vectorYPoints.Count;
-            vectorY.SetPosition(vectorYPoints.Count - 1, vectorYPoints[vectorYPoints.Count - 1]);
-        }
-        if (vectorZPoints[vectorZPoints.Count - 1] != vectorArrow.position + vectorArrow.right*0.5f)
-        {
-            vectorZPoints.Add(vectorArrow.position + vectorArrow.right*0.5f);
-            vectorZ.positionCount = vectorZPoints.Count;
-            vectorZ.SetPosition(vectorZPoints.Count - 1, vectorZPoints[vectorZPoints.Count - 1]);
-        }
-
-        if (quaternionXPoints[quaternionXPoints.Count - 1] != quaternionArrow.forward*0.5f)
-        {
-            quaternionXPoints.Add(quaternionArrow.position + quaternionArrow.forward*0.5f);
-            quaternionX.positionCount = quaternionXPoints.Count;
-            quaternionX.SetPosition(quaternionXPoints.Count - 1, quaternionXPoints[quaternionXPoints.Count - 1]);
-        }
-        if (quaternionYPoints[quaternionYPoints.Count - 1] != quaternionArrow.up*0.5f)
-        {
-            quaternionYPoints.Add(quaternionArrow.position + quaternionArrow.up*0.5f);
-            quaternionY.positionCount = quaternionYPoints.Count;
-            quaternionY.SetPosition(quaternionYPoints.Count - 1, quaternionYPoints[quaternionYPoints.Count - 1]);
-        }
-        if (quaternionZPoints[quaternionZPoints.Count - 1] != quaternionArrow.right*0.5f)
-        {
-            quaternionZPoints.Add(quaternionArrow.position + quaternionArrow.right*0.5f);
-            quaternionZ.positionCount = quaternionZPoints.Count;
-            quaternionZ.SetPosition(quaternionZPoints.Count - 1, quaternionZPoints[quaternionZPoints.Count - 1]);
-        }
+        quaternionX.Clear();
+        quaternionY.Clear();
+        quaternionZ.Clear();
     }
 }
