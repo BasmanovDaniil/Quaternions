@@ -13,18 +13,22 @@ Thumbs.db
 [Ll]ibrary
 [Tt]emp
 [Bb]uilds
-QCAR
+[Ll]ogs
+UserSettings
 *.unityproj
 
 # Visual Studio #
 #################
 [Oo]bj
-.vs
-.vscode
 *.sln
 *.csproj
 *.suo
 *.userprefs
 *.pidb
-*.DotSettings
+.vs
 *.DotSettings.user
+.vsconfig
+
+# Rider #
+#########
+.idea
